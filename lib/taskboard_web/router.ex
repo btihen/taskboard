@@ -46,7 +46,6 @@ defmodule TaskboardWeb.Router do
   end
 
   ## Authentication routes
-
   scope "/auth", TaskboardWeb.Auth, as: :auth do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 
@@ -81,5 +80,16 @@ defmodule TaskboardWeb.Router do
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
     end
+  end
+
+  scope "/admin", TaskboardWeb.Admin, as: :admin do
+    pipe_through :browser
+
+    live "/projects", ProjectLive.Index, :index
+    live "/projects/new", ProjectLive.Index, :new
+    live "/projects/:id/edit", ProjectLive.Index, :edit
+
+    live "/projects/:id", ProjectLive.Show, :show
+    live "/projects/:id/show/edit", ProjectLive.Show, :edit
   end
 end

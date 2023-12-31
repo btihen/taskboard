@@ -10,6 +10,38 @@ defmodule Taskboard.Core.Accounts do
 
   ## Database getters
 
+  ### list_users
+  @doc """
+  Returns the list of users.
+
+  ## Examples
+
+      iex> list_users()
+      [%User{}, ...]
+
+  """
+  def list_users do
+    Repo.all(User)
+  end
+
+  ### get_user!
+  @doc """
+  Gets a single user.
+
+  Raises `Ecto.NoResultsError` if the User does not exist.
+
+  ## Examples
+
+      iex> get_user!(123)
+      %User{}
+
+      iex> get_user!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_user!(id), do: Repo.get!(User, id)
+
+  ### get_user_by_email
   @doc """
   Gets a user by email.
 
@@ -26,6 +58,7 @@ defmodule Taskboard.Core.Accounts do
     Repo.get_by(User, email: email)
   end
 
+  ### get_user_by_email_and_password
   @doc """
   Gets a user by email and password.
 
