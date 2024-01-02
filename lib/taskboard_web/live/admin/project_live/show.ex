@@ -2,11 +2,10 @@ defmodule TaskboardWeb.Admin.ProjectLive.Show do
   use TaskboardWeb, :live_view
 
   alias Taskboard.Core.Programs
-  alias Taskboard.Core.Accounts
 
   @impl true
   def mount(_params, _session, socket) do
-    IO.inspect socket
+    # IO.inspect socket
     # owner = Taskboard.Core.Accounts.get_user()
     #socket = assign(socket, owner: owner)
     {:ok, socket}
