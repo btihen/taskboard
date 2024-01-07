@@ -40,7 +40,8 @@ defmodule TaskboardWeb do
     quote do
       use Phoenix.Controller,
         formats: [:html, :json],
-        layouts: [html: TaskboardWeb.Layouts]
+        # layouts: [html: TaskboardWeb.Layouts]
+        layout: {TaskboardWeb.Layouts, :app}
 
       import Plug.Conn
       import TaskboardWeb.Gettext

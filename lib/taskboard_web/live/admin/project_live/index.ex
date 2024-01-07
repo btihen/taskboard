@@ -3,6 +3,7 @@ defmodule TaskboardWeb.Admin.ProjectLive.Index do
 
   alias Taskboard.Core.Programs
   alias Taskboard.Core.Programs.Project
+  import TaskboardWeb.Components.EmptyState, only: [empty_state: 1]
 
   @impl true
   def mount(_params, _session, socket) do

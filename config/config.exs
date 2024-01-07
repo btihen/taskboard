@@ -11,6 +11,10 @@ config :taskboard,
   ecto_repos: [Taskboard.Repo],
   generators: [timestamp_type: :utc_datetime]
 
+# config :taskboard,
+#   ecto_repos: [Taskboard.Repo],
+#   generators: [timestamp_type: :utc_datetime, binary_id: true]
+
 # Configures the endpoint
 config :taskboard, TaskboardWeb.Endpoint,
   url: [host: "localhost"],
